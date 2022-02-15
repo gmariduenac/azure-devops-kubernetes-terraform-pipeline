@@ -13,7 +13,7 @@ pool:
 jobs:
   - job:Job02
     steps:
-    - script: echo Job02         
+    - script: echo Job02
   - job:Job03
     steps:
     - script: echo Job02    
