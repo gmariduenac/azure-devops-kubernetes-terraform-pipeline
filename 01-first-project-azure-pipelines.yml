@@ -11,7 +11,7 @@ pool:
 
 #Pipelines > Stages > Jobs > Tasks(Steps)
 jobs:
+  - job:Job02
     steps:
-    - script:          
-        echo Job02 
-      displayName: 'Run a one-line script'
+    - script: echo Job02         
+
