@@ -28,7 +28,15 @@ jobs:
     displayName: 'Run a one-line script'
   
 - job: Job03
-  dependsOn: Job02
+  dependsOn: Job01
   steps:
   - script: echo Job03          
+    displayName: 'Run a one-line script'
+    
+- job: Job04
+  dependsOn: 
+  - Job02
+  - Job03
+  steps:
+  - script: echo Job04          
     displayName: 'Run a one-line script'
