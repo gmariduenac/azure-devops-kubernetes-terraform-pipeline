@@ -10,6 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 #Pipelines > Stages > Jobs > Tasks(Steps)
+#Jobs can run in parallel in multiple agents. Also Jobs can have dependencies
+#script execution (inside a job) are sequential not in parallel.
 jobs:
 - job: Job01
   steps:
