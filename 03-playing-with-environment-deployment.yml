@@ -25,21 +25,19 @@ stages:
     - deployment: DevDeployJob
       environment: Dev
       strategy:
-       runOnce:
-         deploy:
+        runOnce:
+          deploy:
             steps:
-              - script: echo deploy to Dev
+            - script: echo deploy to Dev
   - stage: QADeploy
     jobs:
     - deployment: DevDeployJob
       environment: QA
       strategy:
-       runOnce:
-         deploy:
-            steps:
-              - script: echo deploy to Dev
-
-
+        runOnce:
+          deploy:
+             steps:
+             - script: echo deploy to Dev
 steps:
 - script: echo running on $(operatingSystem)
   displayName: 'Run a one-line script'
