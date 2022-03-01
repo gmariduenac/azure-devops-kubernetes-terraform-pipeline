@@ -9,11 +9,36 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world! updated!
-  displayName: 'Run a one-line script'
+#Pipelines > Stages > Jobs > Tasks(Steps)
+#Jobs can run in parallel in multiple agents. Also Jobs can have dependencies
+#script execution (inside a job) are sequential not in parallel.
+jobs:
+- job: Job01
+  steps:
+  - script: echo Job01 Hello, world! changed!
+    displayName: 'Run a one-line script'
+  - script:
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+      echo more information
+    displayName: 'Run a multi-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- job: Job02
+  dependsOn: Job01
+  steps:
+  - script: echo Job02          
+    displayName: 'Run a one-line script'
+  
+- job: Job03
+  dependsOn: Job01
+  steps:
+  - script: echo Job03          
+    displayName: 'Run a one-line script'
+    
+- job: Job04
+  dependsOn: 
+  - Job02
+  - Job03
+  steps:
+  - script: echo Job04          
+    displayName: 'Run a one-line script'
