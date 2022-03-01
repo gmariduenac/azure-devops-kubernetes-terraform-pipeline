@@ -21,7 +21,7 @@ steps:
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    commandOptions: '-var client_id = $(client_id) -var client_secret = $(client_secret) -var ssh_public_key = $(publickey.secureFilePath)'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'azure-resource-manager-service-connection'
     ensureBackend: true
@@ -30,6 +30,6 @@ steps:
     backendAzureRmStorageAccountName: 'storageacctintegral64'
     backendAzureRmContainerName: 'storageacctintegral64container'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
-    allowTelemetryCollection: true
+    allowTelemetryCollection: false
   displayName: 'Run a one-line script'
 
