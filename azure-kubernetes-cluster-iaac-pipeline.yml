@@ -48,4 +48,4 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     environmentServiceName: 'azure-resource-manager-service-connection'
     allowTelemetryCollection: false
-  displayName: 'Destroy'
+  displayName: 'destroy'
